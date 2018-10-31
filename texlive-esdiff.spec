@@ -6,7 +6,7 @@
 # catalog-version 1.2
 Name:		texlive-esdiff
 Version:	1.2
-Release:	10
+Release:	11
 Summary:	Simplify typesetting of derivatives
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/esdiff
