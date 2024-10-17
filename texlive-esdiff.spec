@@ -3,7 +3,7 @@ Version:	21385
 Release:	2
 Summary:	Simplify typesetting of derivatives
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/esdiff
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/esdiff
 License:	LPPL1
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/esdiff.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/esdiff.doc.r%{version}.tar.xz
