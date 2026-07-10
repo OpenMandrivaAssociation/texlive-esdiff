@@ -1,49 +1,26 @@
-Name:		texlive-esdiff
-Version:	21385
-Release:	2
+%global tl_name esdiff
+%global tl_revision 78348
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.2
+Release:	%{tl_revision}.1
 Summary:	Simplify typesetting of derivatives
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/esdiff
-License:	LPPL1
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/esdiff.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/esdiff.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/esdiff.source.r%{version}.tar.xz
+License:	lppl1
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/esdiff.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/esdiff.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/esdiff.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package makes writing derivatives very easy. It offers
-macros for derivatives, partial derivatives and multiple
-derivatives, and allows specification of the point at which the
-value is calculated. Some typographic alternatives may be
-selected by package options.
+The package makes writing derivatives very easy. It offers macros for
+derivatives, partial derivatives and multiple derivatives, and allows
+specification of the point at which the value is calculated. Some
+typographic alternatives may be selected by package options
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/esdiff/esdiff.sty
-%doc %{_texmfdistdir}/doc/latex/esdiff/README
-%doc %{_texmfdistdir}/doc/latex/esdiff/esdiff.pdf
-#- source
-%doc %{_texmfdistdir}/source/latex/esdiff/esdiff.dtx
-%doc %{_texmfdistdir}/source/latex/esdiff/esdiff.ins
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
